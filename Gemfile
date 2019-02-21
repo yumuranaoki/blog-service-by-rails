@@ -12,7 +12,7 @@ gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 4.8.0'
 end
 
 group :development do
@@ -41,6 +42,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+end
+
+group :test do
+  gem 'capybara', '~> 2.15.2'
+  gem 'pry-byebug', '~> 3.6.0'
 end
 
 
