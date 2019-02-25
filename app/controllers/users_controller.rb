@@ -1,7 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController 
   def create
     name, email, password, password_confirmation = params[:name], params[:email], params[:password], params[:password_confirmation]
-    logger.debug('called')
     @user = User.new(
       name: name,
       email: email,
@@ -10,16 +9,16 @@ class UsersController < ApplicationController
     )
 
     if @user.save
+      cookies.encrypted[:user_id] = {value: @user.id, expires: 30.days, httponly: true}
       render json: {
-        'result': 'ok',
+        'success': true,
         'body': {
-          id: @user.id
+          'id': @user.id
         }
       }
-      cookie.encrypted[:user_id] = { value: @user.id, expires: 30.day }
     else
       render json: {
-        'result': 'error',
+        'success': false,
         'body': {
           'message': 'fail to register'
         }
