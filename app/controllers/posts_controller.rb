@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     posts_json = @user.posts.all.as_json
     render json: {
       success: true,
+      code: 200,
       body: {
         posts: posts_json
       }
@@ -24,12 +25,14 @@ class PostsController < ApplicationController
     if post.save
       render json: {
         success: true,
+        code: 200,
         body: {
         }
       }
     else
       render json: {
         success: false,
+        code: 500,
         body: {
           message: 'fail to post'
         }
@@ -43,6 +46,7 @@ class PostsController < ApplicationController
       post_json = Post.find(post_id).as_json
       render json: {
         success: true,
+        code: 200,
         body: {
           posts: post_json
         }
@@ -51,6 +55,7 @@ class PostsController < ApplicationController
       logger.debug(err)
       render json: {
         success: false,
+        code: 500,
         body: {
           message: 'fail to load post information'
         }

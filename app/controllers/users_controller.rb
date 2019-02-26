@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     else
       render json: {
         success: false,
+        code: 500,
         body: {
           message: 'fail to register'
         }

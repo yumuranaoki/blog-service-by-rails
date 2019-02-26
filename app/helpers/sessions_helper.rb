@@ -7,10 +7,12 @@ module SessionsHelper
       logger.debug(err)
       render json: {
         success: false,
+        code: 401,
         body: {
           message: 'fail to load user information'
         }
       }
+      return
     end
   end
 end
