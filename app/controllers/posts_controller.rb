@@ -48,7 +48,7 @@ class PostsController < ApplicationController
         success: true,
         code: 200,
         body: {
-          posts: post_json
+          post: post_json
         }
       }
     rescue => err

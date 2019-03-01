@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   post '/posts', to: 'posts#create'
   get '/post/:id', to: 'posts#show'
   post '/signup', to: 'users#create'
+  patch '/user', to: 'users#update'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end
