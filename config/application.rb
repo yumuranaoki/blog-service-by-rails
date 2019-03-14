@@ -32,5 +32,13 @@ module Myapp
     config.middleware.use ActionDispatch::Cookies
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_spaces: false,
+        helper_specs: true,
+        routing_specs: false      
+    end
   end
 end
