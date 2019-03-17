@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
-    title "MyString"
-    place "MyString"
-    detail "MyText"
+    sequence(:title) { |n| "title#{n}" }
+    place "myplace"
+    detail "mytext"
   end
 end
